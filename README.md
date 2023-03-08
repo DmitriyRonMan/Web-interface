@@ -1,3 +1,5 @@
+[![Build status](https://ci.appveyor.com/api/projects/status/ybi1mwnxjq9sdrx2?svg=true)](https://ci.appveyor.com/project/DmitriyRonMan/web-interface)
+
 ## Задача №1: заказ карты ##
 Вам необходимо автоматизировать тестирование формы заказа карты:
 
