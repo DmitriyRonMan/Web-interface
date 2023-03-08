@@ -26,6 +26,7 @@ public class WebInterfaceTest {
         options.addArguments("--no-sandbox");
         options.addArguments("--headless");
         driver = new ChromeDriver(options);
+        driver.get("http://localhost:9999");
 
     }
 
@@ -37,13 +38,12 @@ public class WebInterfaceTest {
 
     @Test
     void shouldPositiveTest() {
-        driver.get("http://localhost:9999");
         driver.findElement(By.cssSelector("[data-test-id=name] input")).sendKeys("Пушкин Александр");
-        driver.findElements(By.className("input__control")).get(1).sendKeys("+79867546283");
+        driver.findElement(By.cssSelector("[data-test-id=phone] input")).sendKeys("+79867546283");
         driver.findElement(By.cssSelector("[data-test-id=agreement]")).click();
         driver.findElement(By.className("button__text")).click();
         String expected = "Ваша заявка успешно отправлена! Наш менеджер свяжется с вами в ближайшее время.";
-        String actual = driver.findElement(By.tagName("p")).getText().trim();
+        String actual = driver.findElement(By.cssSelector("[data-test-id=order-success]")).getText().trim();
 
         assertEquals(expected, actual);
     }
